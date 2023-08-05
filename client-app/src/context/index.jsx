@@ -7,7 +7,7 @@ import { ethers } from 'ethers';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract(import.meta.env.VITE_CROWDFUNDING_CONTRACT_ADDRESS);
+  const { contract } = useContract(process.env.REACT_APP_CROWDFUNDING_CONTRACT_ADDRESS);
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
