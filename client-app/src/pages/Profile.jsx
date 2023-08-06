@@ -7,11 +7,11 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
 
-  const { address, contract, getUserCampaigns } = useStateContext();
+  const { address, contract, getMyCampaigns } = useStateContext();
 
   const fetchCampaigns = async () => {
     setIsLoading(true);
-    const data = await getUserCampaigns();
+    const data = await getMyCampaigns();
     setCampaigns(data);
     setIsLoading(false);
   }
@@ -22,7 +22,7 @@ const Profile = () => {
 
   return (
     <DisplayCampaigns 
-      title="All Campaigns"
+      title="My Campaigns"
       isLoading={isLoading}
       campaigns={campaigns}
     />

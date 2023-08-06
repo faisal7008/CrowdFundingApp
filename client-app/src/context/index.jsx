@@ -50,10 +50,18 @@ export const StateContextProvider = ({ children }) => {
     return parsedCampaings;
   }
 
-  const getUserCampaigns = async () => {
+  const getMyCampaigns = async () => {
     const allCampaigns = await getCampaigns();
 
     const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === address);
+
+    return filteredCampaigns;
+  }
+
+  const getUserCampaigns = async (user_address) => {
+    const allCampaigns = await getCampaigns();
+
+    const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === user_address);
 
     return filteredCampaigns;
   }
@@ -89,6 +97,7 @@ export const StateContextProvider = ({ children }) => {
         wallet,
         createCampaign: publishCampaign,
         getCampaigns,
+        getMyCampaigns,
         getUserCampaigns,
         donate,
         getDonations

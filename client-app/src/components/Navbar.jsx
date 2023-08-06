@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ConnectWallet } from "@thirdweb-dev/react";
 
 import { useStateContext } from "../context";
 import { CustomButton } from "./";
 import { logo, menu, search, thirdweb } from "../assets";
 import { navlinks } from "../constants";
+import ConnectToWallet from "./ConnectToWallet";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -40,20 +40,7 @@ const Navbar = () => {
             handleClick={() => navigate("create-campaign")}
           />
         ) : (
-          <ConnectWallet
-            style={{
-              fontFamily: "Epilogue",
-              fontWeight: "600",
-              fontSize: "16px",
-              lineHeight: "26px",
-              color: "white",
-              minHeight: "52px",
-              paddingLeft: "1rem",
-              paddingRight: "1rem",
-              borderRadius: "10px",
-              background: "#8c6dfd",
-            }}
-          />
+          <ConnectToWallet />
         )}
 
         <Link to="/profile">
@@ -129,21 +116,7 @@ const Navbar = () => {
                 handleClick={() => navigate("create-campaign")}
               />
             ) : (
-              <ConnectWallet
-                style={{
-                  fontFamily: "Epilogue",
-                  fontWeight: "600",
-                  fontSize: "16px",
-                  lineHeight: "26px",
-                  color: "white",
-                  minHeight: "52px",
-                  paddingLeft: "1rem",
-                  paddingRight: "1rem",
-                  borderRadius: "10px",
-                  background: "#8c6dfd",
-                  width: "100%"
-                }}
-              />
+              <ConnectToWallet fullWidth/>
             )}
           </div>
         </div>
